@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Decorative Background -->
+<div class="bg">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="grid-overlay"></div>
+</div>
+
+<!-- Toast notifications -->
+<div id="toast" class="toast hidden"></div>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pathfinder</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Pathfinder</div>
+
+  <!-- Navigation Menu -->
+  <nav class="nav-menu">
+    <a href="#" id="navHome">Home</a>
+    <a href="#" id="navAbout">About</a>
+    <a href="#" id="navContact">Contact</a>
+  </nav>
+
+  <div id="userBar" class="userbar hidden">
+    <span id="userEmail"></span>
+    <button class="btn btn-ghost" id="logoutBtn">Logout</button>
+  </div>
+</header>
+
+  <main class="container">
+    <!-- LANDING PAGE -->
+<section id="landingView" class="landing">
+  <div class="hero">
+    <h1>Find The Right Career Path 🎯</h1>
+    <p class="subtitle">
+      Pathfinder helps you discover the best job opportunities based on 
+      your skills, interests, qualification, and location.
+    </p>
+    <button class="btn big-btn" id="startBtn">Get Started</button>
+  </div>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>🔍 Smart Matching</h3>
+      <p>Get top job matches based on your profile, experience, and preferences — instantly..</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>📍 Location Based</h3>
+      <p>Find jobs available in your district across Nepal.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>💾 Save Jobs</h3>
+      <p>Bookmark opportunities and access them anytime from your dashboard..</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>⚡ Quick & Simple</h3>
+      <p>Create a profile once and get instant recommendations.</p>
+    </div>
+  </div>
+</section>
+<!-- ABOUT SECTION -->
+<section id="aboutSection" class="card hidden">
+  <h2>About Pathfinder</h2>
+  <p class="muted">
+    Pathfinder is a smart job recommendation system designed to help 
+    individuals discover career opportunities based on their skills, 
+    interests, qualification, and district.
+  </p>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contactSection" class="card hidden">
+  <h2>Contact Us</h2>
+  <p class="muted">Have questions or feedback?</p>
+  <p>Email: mrigashiraworldschool@gmail.com</p>
+  <p>Phone: +977-9841701080</p>
+</section>
+    <!-- AUTH -->
+    <section id="authView" class="card">
+      <h1>Welcome 👋</h1>
+      <p class="muted">Login or create an account to get job recommendations.</p>
+
+      <div class="tabs">
+        <button class="tab active" id="loginTab">Login</button>
+        <button class="tab" id="signupTab">Sign up</button>
+      </div>
+
+      <div id="authMsg" class="msg hidden"></div>
+
+      <form id="loginForm" class="form">
+        <label>Email</label>
+        <input type="email" id="loginEmail" placeholder="you@example.com" required />
+
+        <label>Password</label>
+        <input type="password" id="loginPassword" placeholder="••••••••" required />
+
+        <button class="btn" type="submit">Login</button>
+      </form>
+
+      <form id="signupForm" class="form hidden">
+        <label>Email</label>
+        <input type="email" id="signupEmail" placeholder="you@example.com" required />
+
+        <label>Password</label>
+        <input type="password" id="signupPassword" placeholder="Create a password" required />
+
+        <button class="btn" type="submit">Create account</button>
+      </form>
+    </section>
+
+    <!-- HOME / PROFILE -->
+    <section id="homeView" class="card hidden">
+      <h2>Your Profile</h2>
+      <p class="muted">Fill this once. We’ll recommend your top 2–3 jobs.</p>
+
+      <div id="profileMsg" class="msg hidden"></div>
+
+      <form id="profileForm" class="form grid">
+        
+        <div>
+          <label>Full name</label>
+          <input id="fullName" placeholder="Your name" required />
+        </div>
+
+        <div>
+          <label>Location</label>
+          <select id="location" required>
+  <option value="">Select District</option>
+  <option>Kathmandu</option>
+  <option>Lalitpur</option>
+  <option>Bhaktapur</option>
+  <option>Pokhara</option>
+  <option>Chitwan</option>
+  <option>Rupandehi</option>
+  <option>Jhapa</option>
+  <option>Morang</option>
+  <option>Sunsari</option>
+  <option>Dang</option>
+  <option>Kaski</option>
+  <option>Parsa</option>
+  <option>Banke</option>
+  <option>Kailali</option>
+  <option>Surkhet</option>
+  <option>Makwanpur</option>
+  <option>Gorkha</option>
+  <option>Lamjung</option>
+  <option>Tanahun</option>
+  <option>Nawalparasi</option>
+  <option>Dhading</option>
+  <option>Sindhupalchok</option>
+  <option>Kavrepalanchok</option>
+  <option>Ramechhap</option>
+  <option>Sindhuli</option>
+  <option>Dolakha</option>
+  <option>Okhaldhunga</option>
+  <option>Solukhumbu</option>
+  <option>Khotang</option>
+  <option>Udayapur</option>
+  <option>Sarlahi</option>
+  <option>Dhanusha</option>
+  <option>Mahottari</option>
+  <option>Siraha</option>
+  <option>Saptari</option>
+  <option>Bara</option>
+  <option>Rautahat</option>
+  <option>Gulmi</option>
+  <option>Arghakhanchi</option>
+  <option>Palpa</option>
+  <option>Baglung</option>
+  <option>Myagdi</option>
+  <option>Mustang</option>
+  <option>Manang</option>
+  <option>Dolpa</option>
+  <option>Jumla</option>
+  <option>Kalikot</option>
+  <option>Mugu</option>
+  <option>Humla</option>
+  <option>Dailekh</option>
+  <option>Jajarkot</option>
+  <option>Rukum</option>
+  <option>Rolpa</option>
+  <option>Pyuthan</option>
+  <option>Bajhang</option>
+  <option>Bajura</option>
+  <option>Doti</option>
+  <option>Achham</option>
+  <option>Baitadi</option>
+  <option>Dadeldhura</option>
+  <option>Darchula</option>
+  <option>Kanchanpur</option>
+  <option>Ilam</option>
+  <option>Taplejung</option>
+  <option>Panchthar</option>
+  <option>Dhankuta</option>
+  <option>Terhathum</option>
+  <option>Bhojpur</option>
+  <option>Sankhuwasabha</option>
+  <option>Rasuwa</option>
+  <option>Nuwakot</option>
+</select>
+        </div>
+
+        <div>
+          <label>Qualification</label>
+          <select id="qualification" required>
+            <option value="">Select</option>
+            <option>High School</option>
+            <option>Diploma</option>
+            <option>Bachelor</option>
+            <option>Master</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Experience (years)</label>
+          <select id="experience" required>
+  <option value="">Select Experience</option>
+  <option value="0">Fresher (0 years)</option>
+  <option value="1">1 year</option>
+  <option value="2">2 years</option>
+  <option value="3">3+ years</option>
+</select>
+        </div>
+
+        
+  
+  
+     <label>Select Skills</label><br>
+     <select id="skills" required>
+    <option value="html">HTML</option>
+    <option value="css">CSS</option>
+    <option value="javascript">JavaScript</option>
+    <option value="excel">Excel</option>
+    <option value="communication">Communication</option>
+    <option value="design">Design</option>
+    <option value="data">Data Analysis</option>
+    <option value="marketing">Marketing</option>
+    <option value="networking">Networking</option>
+    <option value="teaching">Teaching</option>
+  </select><br>
+</div>
+        </div>
+
+        
+  <label>Select Hobbies </label><br>
+
+  
+  <select id="interests" required>
+    <option value="">Select Hobby</option>
+    <option value="reading">Reading</option>
+    <option value="writing">Writing</option>
+    <option value="gaming">Gaming</option>
+    <option value="travel">Traveling</option>
+    <option value="design">Design</option>
+    <option value="photography">Photography</option>
+    <option value="sports">Sports</option>
+    <option value="music">Music</option>
+    <option value="research">Research</option>
+    <option value="creative">Creative Work</option>
+    <option value="helping">Helping Others</option>
+    <option value="problem solving">Problem Solving</option>
+    <option value="public speaking">Public Speaking</option>
+    <option value="art">Art</option>
+    <option value="technology">Technology</option>
+  </select>
+</div>
+        </div>
+
+        <div class="full actions">
+          <button class="btn" type="submit">Save & Find Jobs</button>
+          <button class="btn btn-ghost" type="button" id="goResultsBtn">View Results</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="resultsView" class="hidden">
+      <div class="row">
+        <h2>Recommended Jobs</h2>
+        <div class="row-actions">
+          <button class="btn btn-ghost" id="backHomeBtn">Edit Profile</button>
+        </div>
+      </div>
+
+      <div id="resultsMsg" class="msg hidden"></div>
+
+      <div id="jobList" class="jobs"></div>
+
+      <section class="card" style="margin-top:16px;">
+        <h3>Saved Jobs</h3>
+        <div id="savedList" class="jobs"></div>
+      </section>
+    </section>
+
+  </main>
+<!-- FOOTER -->
+<!-- LINKEDIN STYLE FOOTER -->
+<footer id="mainFooter" class="footer">
+  <div class="footer-container">
+
+    <div class="footer-logo">
+      <img src="THE LOGO.png" height="170" width = "170">
+      <h2>Pathfinder</h2>
+    </div>
+
+    <div class="footer-columns">
+
+      <div class="footer-col">
+        <h4>General</h4>
+        <a href="#">Sign Up</a>
+        <a href="#">Help Center</a>
+        <a href="#">About</a>
+        <a href="#">Press</a>
+        <a href="#">Blog</a>
+        <a href="#">Careers</a>
+        <a href="#">Developers</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Browse Pathfinder</h4>
+        <a href="#">Learning</a>
+        <a href="#">Jobs</a>
+        <a href="#">Services</a>
+        <a href="#">Top Companies</a>
+        <a href="#">Top Colleges</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Business Solutions</h4>
+        <a href="#">Talent</a>
+        <a href="#">Marketing</a>
+        <a href="#">Sales</a>
+        <a href="#">Learning</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Directories</h4>
+        <a href="#">Members</a>
+        <a href="#">Jobs</a>
+        <a href="#">Companies</a>
+        <a href="#">Articles</a>
+        <a href="#">News</a>
+        <a href="#">Advice</a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Pathfinder Designed by Navigo Team <br>
+    Tech Hackathon 2082<br>
+    MRIGASHIRA WORLD SCHOOL<br>
+    Bhotebahal -11, Kathmandu, Nepal
+  </div>
+</footer>
+  <script src="app.js"></script>
+</body>
+</html>
+
